@@ -1,0 +1,7 @@
+name: 'TCM Group Extras'
+type: module
+description: 'Extra functionality to group module'
+core: 8.x
+package: 'TCM'
+dependencies:
+  - group

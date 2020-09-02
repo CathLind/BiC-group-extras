@@ -1,0 +1,5 @@
+services:
+  tcm_group_extras.route_subscriber:
+    class: Drupal\tcm_group_extras\Routing\TcmGroupExtrasRouteSubscriber
+    tags:
+      - { name: event_subscriber }

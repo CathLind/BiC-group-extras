@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Contains tcm_group_extras.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\book\BookManager;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\node\NodeTypeInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_help().
+ */
+function tcm_group_extras_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tcm_group_extras module.
+    case 'help.page.tcm_group_extras':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Extra functionality to group module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Adds the Group form element to the node form.
+ *
+ */
+function tcm_group_extras_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+    // Removes all the tabs at the bottom, except the group tab if enabled
+  unset($form['meta']);
+  unset($form['menu']);
+  unset($form['path']);
+  unset($form['author']);
+  unset($form['options']);
+  $form['revision_information']['#access'] = false;
+}
+
