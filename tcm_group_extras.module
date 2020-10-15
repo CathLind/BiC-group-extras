@@ -33,24 +33,3 @@ function tcm_group_extras_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
-
-
-
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
- *
- * Adds the Group form element to the node form.
- *
- */
-function tcm_group_extras_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
-    // Removes all the tabs at the bottom, except the group tab if enabled
-  unset($form['meta']);
-  unset($form['menu']);
-  unset($form['path']);
-  unset($form['author']);
-  unset($form['options']);
-  $form['revision_information']['#access'] = false;
-}
-
