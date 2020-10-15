@@ -44,11 +44,3 @@ The idea comes from; https://www.drupal.org/project/group/issues/3152953
 
 
 
-
-*****************************************************
-*** Hide all the standard tabs on the node form   ***
-*****************************************************
-
-On all the node forms, the standard tabs are removed.
-
-
